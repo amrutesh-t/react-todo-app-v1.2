@@ -4,8 +4,7 @@ export default {
     this.setState(prevState => ({
           todos: prevState.switchSearch?prevState.bkpTodos:(prevState.bkpTodos.filter((val)=>(!value ? true : (val.todo.toUpperCase().indexOf(value.toUpperCase()) > -1)))),
           bkpTodos: prevState.bkpTodos,
-          input: value,
-          filterInput: value,
+          input: value
       })
     );
   },
@@ -23,8 +22,7 @@ export default {
       this.setState(prevState => ({
         todos: prevState.todos.concat(newTodo),
         bkpTodos: prevState.bkpTodos.concat(newTodo),
-        input: '',
-        filterInput: ''
+        input: ''
       }));
     } else {
       return;
@@ -43,8 +41,7 @@ export default {
     this.setState(prevState => ({
       todos: newTodos,
       bkpTodos: prevState.bkpTodos,
-      input: '',
-      filterInput: ''
+      input: ''
     }));
   },
 
@@ -57,8 +54,7 @@ export default {
     this.setState(prevState => ({
       todos: newTodos,
       bkpTodos: prevState.bkpTodos,
-      input: '',
-      filterInput: ''
+      input: ''
     }));
   },
 
@@ -68,8 +64,7 @@ export default {
     this.setState(prevState => ({
       todos: newTodos,
       bkpTodos: newTodos,
-      input: '',
-      filterInput: ''
+      input: ''
     }));
   }
 }

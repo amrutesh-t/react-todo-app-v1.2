@@ -6,7 +6,7 @@ import './App.css'
 export class TodoList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { todos: [], bkpTodos:[], input: '', filterInput: '', switchSearch: true};
+    this.state = { todos: [], bkpTodos:[], input: '', switchSearch: true};
 
     this.handleChange                 = AppUtility.handleChange.bind(this);
     this.handleClick                  = AppUtility.handleClick.bind(this);
@@ -67,9 +67,7 @@ export class TodoList extends React.Component {
                                     return val;
                                  }),
       bkpTodos: prevState.bkpTodos,
-      input: '',
-      filterInput: ''
+      input: ''
     }));
-    return function(){console.log(arguments)}
   }
 }
