@@ -1,7 +1,6 @@
 import React from 'react';
-import { List } from './List'
-import AppUtility from './AppUtility'
-import './App.css'
+import AppUtility from './AppUtility';
+import AppJsx from './AppJsx';
 
 export class TodoList extends React.Component {
   constructor(props) {
@@ -15,42 +14,13 @@ export class TodoList extends React.Component {
     this.handleCheck                  = AppUtility.handleCheck.bind(this);
     this.handleDelete                 = AppUtility.handleDelete.bind(this);
     this.handleSwitch                 = this.handleSwitch.bind(this);
+    this.renderHtml                   = AppJsx.renderHtml.bind(this);
   }
 
   render() {
     return (
-      <div className={'container'}>
-        <h1>{"todo's"}</h1>
-        <div className={'main'}>
-          <form>
-            <div className={'upper'}>
-              <button onClick={this.handleSwitch(!this.state.switchSearch)}
-                      title={this.state.switchSearch?"New":"Filter"}>
-                <i className={!this.state.switchSearch?'hide':'show'}>&#8469;</i>
-                <i className={this.state.switchSearch?'hide':'show'}>&#x2231;</i>
-              </button>
-              <input
-                type="text"
-                onChange={this.handleChange}
-                value={this.state.input}
-                placeholder={this.state.switchSearch?"What to do next?":"Filter list"}
-              />
-            </div>
-            <div className={'middle'}>
-              <List todos={this.state.todos} onChange={(index) => this.handleCheck(index)} onDelete={(index)=> this.handleDelete(index)}/>
-            </div>
-            <div className={'lower'}>
-              <span>{this.state.todos.length?this.state.todos.length:'Nothing'} left todo</span>
-              <button onClick={this.handleClick} title="Add"> + </button>
-              <button onClick={this.handleClickAll} title="All"> All </button>
-              <button onClick={this.handleClickActiveAndComplete('active')} title="Active"> Active </button>
-              <button onClick={this.handleClickActiveAndComplete('completed')} title="Completed"> Completed </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
-  }
+      this.renderHtml()
+  )}
 
   handleSwitch = switchSearch => event => {
     event.preventDefault();
